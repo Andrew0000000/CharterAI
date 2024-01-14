@@ -4,5 +4,17 @@
   ],
   "extends": [
     "plugin:office-addins/react"
+  ],
+  "overrides": [
+    {
+      "files": ["*.js"],
+      "rules": {
+      }
+    },
+    {
+      "files": ["*.ts", "*.tsx"],
+      "rules": {
+      }
+    }
   ]
 }

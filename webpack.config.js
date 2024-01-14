@@ -64,16 +64,19 @@ module.exports = async (env, options) => {
             'style-loader',
             'css-loader',
             {
-              loader: "postcss-loader",
+              loader: 'postcss-loader',
               options: {
-                plugins: () => [
-                  require("autoprefixer")()
-                ],
+                postcssOptions: {
+                  plugins: [
+                    require('autoprefixer'),
+                    require('tailwindcss'),
+                  ],
+                },
               },
             },
             'sass-loader',
-          ]
-        },
+          ],
+        }
       ],
     },
     plugins: [

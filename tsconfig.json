@@ -24,11 +24,21 @@
     "pretty": true,
     "typeRoots": [
       "node_modules/@types"
-    ]
+    ],
+    "forceConsistentCasingInFileNames": true,
+    "strict": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/taskpane/components/SearchBar.tsx", "src/taskpane/components/Tabs.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "src/**/*.ts",
+    "src/taskpane/components/SearchBar.tsx",
+    "src/taskpane/components/Tabs.tsx"
+  ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "**/*.js"
   ],
   "compileOnSave": false,
   "buildOnSave": false,
