@@ -2,11 +2,11 @@
 // It pulls info from Wiki, Github, VectorWiki, WorldVectorLogo, IconApe, Logo.Fandom, LogoWiki, LogoWine, Gitlab
 
 export const fetchQuery = async (searchValue: string): Promise<any[]> => {
-    // Fetch data from API based on the searchValue
-    const response = await fetch(`https://vector-logos-figma-plugin-api.vercel.app/api/search?query=${searchValue}`);
-    const data = await response.json();
-    return data; 
-  };
+  // Fetch data from API based on the searchValue
+  const response = await fetch(`https://vector-logos-figma-plugin-api.vercel.app/api/search?query=${searchValue}`);
+  const data = await response.json();
+  return data;
+};
 
 
 /* This is the sample response 

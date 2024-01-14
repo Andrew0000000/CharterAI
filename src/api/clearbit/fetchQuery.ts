@@ -4,9 +4,8 @@ export const fetchClearbitQuery = async (searchValue: string): Promise<any[]> =>
   // Fetch data from API based on the searchValue
   const response = await fetch(`https://autocomplete.clearbit.com/v1/companies/suggest?query=${searchValue}`);
   const data = await response.json();
-  return data; 
+  return data;
 };
-
 
 /* This is the sample response 
 [

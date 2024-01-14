@@ -1,17 +1,18 @@
 export const fetchQuery = async (domainName: string): Promise<any[]> => {
-    // Retrieve the Bearer token from the environment variable
-    const bearerToken = process.env.COMPANIESLOGO_KEY;
-    // Ensure the Bearer token is available
-    if (!bearerToken) {
-        throw new Error('Bearer token is not defined in the environment variables.');
-    }
+  // Retrieve the Bearer token from the environment variable
+  const bearerToken = process.env.COMPANIESLOGO_KEY;
+  // Ensure the Bearer token is available
+  if (!bearerToken) {
+    throw new Error("Bearer token is not defined in the environment variables.");
+  }
 
-    // Fetch data from API based on the domainName
-    const response = await fetch(`https://companieslogo.com/api/1.0/?website_domain=${domainName}&api_key=${bearerToken}`);
-    const data = await response.json();
-    return data; 
-  };
-
+  // Fetch data from API based on the domainName
+  const response = await fetch(
+    `https://companieslogo.com/api/1.0/?website_domain=${domainName}&api_key=${bearerToken}`
+  );
+  const data = await response.json();
+  return data;
+};
 
 /* This is the sample response 
 {

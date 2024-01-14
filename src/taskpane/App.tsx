@@ -1,11 +1,11 @@
 import * as React from "react";
-import { useState } from 'react';
-import {NextUIProvider} from "@nextui-org/system";
+import { useState } from "react";
+import { NextUIProvider } from "@nextui-org/system";
 
 import OptionTabs from "./components/Tabs";
 import SearchBar from "./components/SearchBar";
-import SelectedLogos from './components/SelectedLogos';
-import InsertLogoButton from './components/InsertLogoButton';
+import SelectedLogos from "./components/SelectedLogos";
+import InsertLogoButton from "./components/InsertLogoButton";
 
 // Defining the type for a Logo object
 interface Logo {
@@ -20,17 +20,17 @@ const App: React.FC = () => {
 
   // Function to handle the selection of logos
   const handleSelectLogo = (logo: Logo) => {
-    setSelectedLogos(prevSelectedLogos => [...prevSelectedLogos, logo]); // Adding the selected logo to the array of selected logos
+    setSelectedLogos((prevSelectedLogos) => [...prevSelectedLogos, logo]); // Adding the selected logo to the array of selected logos
   };
 
   return (
     <NextUIProvider>
-    <div className="p-4 space-y-2">
-      <OptionTabs />
-      <SearchBar onSelectLogo={handleSelectLogo}/>
-      <SelectedLogos selectedLogos={selectedLogos}/>
-      <InsertLogoButton selectedLogos={selectedLogos}/>
-    </div>
+      <div className="p-4 space-y-2">
+        <OptionTabs />
+        <SearchBar onSelectLogo={handleSelectLogo} />
+        <SelectedLogos selectedLogos={selectedLogos} />
+        <InsertLogoButton selectedLogos={selectedLogos} />
+      </div>
     </NextUIProvider>
   );
 };

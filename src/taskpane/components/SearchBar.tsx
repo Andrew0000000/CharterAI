@@ -16,37 +16,36 @@ interface BrandAutocompleteProps {
 }
 
 const SearchBar: React.FC<BrandAutocompleteProps> = ({ onSelectLogo }) => {
-  const [inputValue, setInputValue] = useState<string>(''); 
-  const [options, setOptions] = useState<Logo[]>([]);  // Update options based on input value
+  const [inputValue, setInputValue] = useState<string>(""); 
+  const [options, setOptions] = useState<Logo[]>([]); // Update options based on input value
 
   const handleInputChange = async (value: string) => {
     setInputValue(value);
-    if (value.trim() === '') {
+    if (value.trim() === "") {
       setOptions([]);
       return;
     }
-      
+
     // Fetch data from API using the fetchQuery utility function
     const data: Logo[] = await fetchQuery(value);
     setOptions(data); // Set the fetched data as options
   };
-  
+
   const handleSelectItem = (logo: Logo) => {
     onSelectLogo(logo);
   };
 
-
-return (
+  return (
     <Autocomplete
-        className="max-w-xs"
-        defaultItems = {options}
-        value={inputValue}
-        onInputChange={handleInputChange}
-        placeholder="Enter company name or domain"
-        startContent={<MagnifyingGlassIcon className="w-6 h-6"/>}
-        // label="Search"
-        // variant="bordered"
-      >
+      className="max-w-xs"
+      defaultItems={options}
+      value={inputValue}
+      onInputChange={handleInputChange}
+      placeholder="Enter company name or domain"
+      startContent={<MagnifyingGlassIcon className="w-6 h-6"/>}
+      // label="Search"
+      // variant="bordered"
+    >
       {options.map((brand, index) => (
         <AutocompleteItem key={index} value={brand.domain} onClick={() => handleSelectItem(brand)}>
           <div className="flex gap-2 items-center">
@@ -59,7 +58,7 @@ return (
         </AutocompleteItem>
       ))}
     </Autocomplete>
-);
+  );
 };
 
 export default SearchBar;

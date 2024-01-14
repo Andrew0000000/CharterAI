@@ -1,27 +1,25 @@
-
-
 export const fetchBrandDetails = async (domainName: string): Promise<any[]> => {
-    // Retrieve the Bearer token from the environment variable
-    const bearerToken = process.env.BRANDFETCH_KEY;
-    // Ensure the Bearer token is available
-    if (!bearerToken) {
-        throw new Error('Bearer token is not defined in the environment variables.');
-    }
-
-    // Define the options for the fetch request
-    const options = {
-        method: 'GET',
-        headers: {
-            'accept': 'application/json',
-            'Authorization': `Bearer ${bearerToken}`
-        }
-    };
-    
-    // Fetch data from API based on the searchValue
-    const response = await fetch(`https://api.brandfetch.io/v2/brands/${domainName}`, options);
-    const data = await response.json();
-    return data; // Return the fetched data
+  // Retrieve the Bearer token from the environment variable
+  const bearerToken = process.env.BRANDFETCH_KEY;
+  // Ensure the Bearer token is available
+  if (!bearerToken) {
+    throw new Error("Bearer token is not defined in the environment variables.");
   }
+
+  // Define the options for the fetch request
+  const options = {
+    method: "GET",
+    headers: {
+      accept: "application/json",
+      Authorization: `Bearer ${bearerToken}`,
+    },
+  };
+
+  // Fetch data from API based on the searchValue
+  const response = await fetch(`https://api.brandfetch.io/v2/brands/${domainName}`, options);
+  const data = await response.json();
+  return data; // Return the fetched data
+};
 
 /* This is the sampel API response
 {
